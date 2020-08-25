@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Musicplayerstyle.css" rel="stylesheet" />
+</head>
+<body>
+
+    <audio id="audio">
+        <!--controls拿掉 不顯示面板-->
+        <source id="song" type="audio/mpeg" />
+    </audio>
+    <div id="ControlPanel">
+        <!--選歌功能 歌本到歌單到播放器 換成用JS forloop 跟changeMusic()-->
+        <select id="music">
+        </select>
+
+        <hr /><!--同一層節點 next-->
+
+        <span id="play">4</span><!--播放-->
+        <!--<span id="pause">;</span> 暫停 把暫停鍵拿掉 跟播放鍵合而為一-->
+        <!--sib = obj.previousElementSibling-->
+        <span id="stop"><</span><!--停止-->
+        <span id="presong">9</span><!--上一首-->
+        <span id="pretime">7</span><!--快轉-->
+        <span id="nexttime">8</span><!--倒退-->
+        <span id="nextsong">:</span><!--下一首-->
+        <span id="muted">V</span><!--靜音-->
+        <span id="loop">q</span><!--單曲循環-->
+        <span id="random">s</span><!--隨機撥放-->
+        <span id="all loop">`</span><!--全曲循環-->
+        <span id="songbook">@</span><!--我的歌本 點一下出現 點一下隱藏-->
+
+        <hr />
+        <!--進度條-->
+        <input id="progress" type="range" value="0" />
+
+        <hr /><!--加個調整音量跟顯示音量-->
+        <!--預設值0到100 長度會停在80%-->
+        <input id="vol" type="range" min="0" max="100" value="80" />
+        <!-- 用UX(隱性)決定適合的UI(顯性) Minimize Plus-->
+        <input id="volM" type="button" value="-" />
+        <input id="volP" type="button" value="+" />
+        <!--就音量拖曳的值 預設也是80 readonly唯讀狀態不能輸入值-->
+        <input id="volValue" type="text" value="80" readonly />
+
+        <hr />
+        <!--資訊看板 顯示目前時間 function getDuration-->
+        <div id="duration">00:00 / 00 : 00</div>
+        <!--跑馬燈 function播放 暫停 停止 whatcaniuse.com-->
+        <marquee id="info">請按播放鈕</marquee>
+        <!--單曲循環 全曲循環 隨機撥放-->
+        <div id="info2"></div>
+        <!-- 我的歌單 左邊的歌本拖曳到右邊的歌本 拖放 draggable="true"可以用監聽器取代代表可以拖放 on(事件)dragstart ondragover拖曳開始與結束-->
+        <div id="book" class="hidden">
+            <div id="Sbook">
+                <!-- alt+左鍵往下可以一次改  id draggable ondragstart都用JS功能取代-->
+                <div title="music/ONE%20OK%20ROCK%20-%20The%20Beginning%20[Official%20Music%20Video].mp3">The Beginning</div>
+                <div title="music/ONE%20OK%20ROCK%20-%20Mighty%20Long%20Fall%20[Official%20Music%20Video].mp3">Mighty Long Fall</div>
+                <div title="music/%e3%82%8b%e3%82%8d%e3%81%86%e3%81%ab%e5%89%a3%e5%bf%83Rurouni%20Kenshin%20-%20one%20ok%20rock%20Heartache%20MV.mp3">Heartache</div>
+                <div title="music/airball.mp3">airball</div>
+                <div title="music/elysees.mp3">elysees</div>
+                <div title="music/little.mp3">little</div>
+                <div title="music/lovehim.mp3">lovehim</div>
+                <div title="music/MV.mp3">MV</div>
+                <div title="music/nomouth.mp3">nomouth</div>
+                <div title="music/nothing.mp3">nothing</div>
+                <div title="music/prettyboy.MP3">prettyboy</div>
+                <div title="music/sliverdragon.mp3">sliverdragon</div>
+            </div><!--只留ID ondrop拖的過程 ondragover丟到框框的時候 html架構的變動-->
+            <div id="Tbook">
+                <!--只留ID-->
+
+            </div>
+            <input id="btnUpdateMusic" type="button" value="更新歌單" />
+        </div>
+    </div>
+
+    <script src="Musicplayer.js"></script>
+</body>
+</html>

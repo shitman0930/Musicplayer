@@ -1,0 +1,126 @@
+﻿#ControlPanel {
+    width: 1200px;
+    height: 300px;
+    border: 5px groove steelblue;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#book {
+    width: 700px;
+    margin: auto;
+}
+
+    #book > div {
+        border: 1px solid;
+        width: 348px;
+        height: 400px;
+        float: left;
+        cursor: pointer;
+    }
+
+.hidden {
+    display: none; /*bootstramp??*/
+}
+
+#ControlPanel > span {
+    border: 2px solid;
+    box-shadow: 2px 2px 2px pink;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 5rem;
+    font-family: Webdings;
+}
+
+#vol { /*適應各個瀏覽器*/
+    width: 80%; /*預設音量80%*/
+    height: 8px;
+    -webkit-appearance: none; /*其他browser 原生效果消失*/
+    -moz-appearance: none; /*火狐 mozila*/
+    border: 3px solid #808080;
+    background-color: #c8c8c8;
+    outline: none; /*去掉框線*/
+}
+
+    #vol::-webkit-slider-thumb { /*滑動的拇指 音量中間的調整鈕*/
+        -webkit-appearance: none;
+        width: 35px;
+        height: 25px;
+        background-color: #4a4848;
+        border: 3px groove white;
+    }
+
+    #vol::-moz-range-thumb {
+        /*火狐用的 綠色底線代表沒錯 但沒啥人用*/
+        -moz-appearance: none;
+        width: 35px;
+        height: 5px;
+        background-color: #4a4848;
+        border: 3px groove white;
+    }
+
+#progress {
+    width: 100%;
+    height: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-bottom: 10px;
+    background-color: #c8c8c8;
+    outline: none;
+}
+
+    #progress::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 10px;
+        height: 5px;
+        background-color: #b60000;
+        cursor: pointer;
+        transition: .5s;
+    }
+
+        #progress::-webkit-slider-thumb:hover {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+#volM, #volP {
+    border-radius: 50%;
+}
+
+#volValue {
+    width: 25px; /*就小方框*/
+    border: 1px groove;
+    background-color: black;
+    color: yellow;
+    text-align: center;
+}
+
+#music, #info, #duration, #info2 { /*選歌 跑馬燈 目前時間 單曲循環 全曲循環 隨機播放*/
+    width: inherit; /*繼承父節點 ControlPanel */
+    background-color: black;
+    color: chartreuse;
+    font-size: 2rem;
+    text-align: center; /*在div可以用這個*/
+}
+
+#book > div {
+    border: 1px solid;
+    width: 323px;
+    height: 400px;
+    overflow: auto;
+    float: left;
+    cursor: copy;
+}
+
+#btnUpdateMusic {
+    clear: both;
+    width: 100%;
+    background-color: cornflowerblue;
+    font-size: 16px;
+    text-align: center;
+    border: 3px groove white;
+    color: white;
+    font-weight: 900;
+}

@@ -1,9 +1,30 @@
-﻿#ControlPanel {
-    width: 1200px;
-    height: 300px;
-    border: 5px groove steelblue;
+﻿@font-face {
+    font-family: 'Myfont';
+    src: url('fonts/webdings.eot') format('embedded-opentype');
+}
+/*直接從fonts資料夾拖過來就可以了*/
+@font-face {
+    font-family: 'Myfont';
+    src: url('fonts/webdings.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'Myfont';
+    src: url('fonts/webdings.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Myfont';
+    src: url('fonts/webdings.woff') format('woff');
+}
+
+
+#ControlPanel {
+    width: 700px;
+    border: 5px groove black;
     margin: auto;
     border-radius: 10px;
+    text-align: center;
 }
 
 #book {
@@ -15,35 +36,44 @@
         border: 1px solid;
         width: 348px;
         height: 400px;
+        overflow: auto;
         float: left;
-        cursor: pointer;
+        cursor: copy;
     }
 
+        #book > div > div {
+            background-color: pink;
+            border: 4px groove white;
+            color: indianred;
+            font-size: 1.3rem;
+        }
+
 .hidden {
-    display: none; /*bootstramp??*/
+    display: none;
 }
 
 #ControlPanel > span {
+    font-family: 'Myfont';
     border: 2px solid;
-    box-shadow: 2px 2px 2px pink;
+    box-shadow: 2px 2px 2px black;
     text-align: center;
     cursor: pointer;
     border-radius: 50%;
-    font-size: 5rem;
+    font-size: 3rem;
     font-family: Webdings;
 }
 
-#vol { /*適應各個瀏覽器*/
-    width: 80%; /*預設音量80%*/
+#vol {
+    width: 80%;
     height: 8px;
-    -webkit-appearance: none; /*其他browser 原生效果消失*/
-    -moz-appearance: none; /*火狐 mozila*/
+    -webkit-appearance: none;
+    -moz-appearance: none;
     border: 3px solid #808080;
     background-color: #c8c8c8;
-    outline: none; /*去掉框線*/
+    outline: none;
 }
 
-    #vol::-webkit-slider-thumb { /*滑動的拇指 音量中間的調整鈕*/
+    #vol::-webkit-slider-thumb {
         -webkit-appearance: none;
         width: 35px;
         height: 25px;
@@ -52,10 +82,9 @@
     }
 
     #vol::-moz-range-thumb {
-        /*火狐用的 綠色底線代表沒錯 但沒啥人用*/
         -moz-appearance: none;
         width: 35px;
-        height: 5px;
+        height: 25px;
         background-color: #4a4848;
         border: 3px groove white;
     }
@@ -90,28 +119,19 @@
 }
 
 #volValue {
-    width: 25px; /*就小方框*/
+    width: 25px;
     border: 1px groove;
     background-color: black;
     color: yellow;
     text-align: center;
 }
 
-#music, #info, #duration, #info2 { /*選歌 跑馬燈 目前時間 單曲循環 全曲循環 隨機播放*/
-    width: inherit; /*繼承父節點 ControlPanel */
-    background-color: black;
+#music, #info, #duration, #info2 {
+    width: inherit;
+    background-color: #2d2c6d;
     color: chartreuse;
     font-size: 2rem;
-    text-align: center; /*在div可以用這個*/
-}
-
-#book > div {
-    border: 1px solid;
-    width: 323px;
-    height: 400px;
-    overflow: auto;
-    float: left;
-    cursor: copy;
+    text-align: center;
 }
 
 #btnUpdateMusic {
